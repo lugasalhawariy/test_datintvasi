@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD" id="7l9WepM0fEcpdZmjrnM9">
+    <mxGraphModel dx="1440" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- User Table -->
+        <mxCell id="user" value="User
+- id (PK)
+- name
+- username (unique)
+- email (unique)
+- password
+- createdAt
+- updatedAt" style="shape=swimlane;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="180" height="160" as="geometry" />
+        </mxCell>
+        <!-- Role Table -->
+        <mxCell id="role" value="Role
+- id (PK)
+- name (unique)
+- createdAt
+- updatedAt" style="shape=swimlane;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="180" height="120" as="geometry" />
+        </mxCell>
+        <!-- Menu Table -->
+        <mxCell id="menu" value="Menu
+- id (PK)
+- name (unique)
+- path
+- parentId (FK)
+- createdAt
+- updatedAt" style="shape=swimlane;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="200" height="140" as="geometry" />
+        </mxCell>
+        <!-- UserRole Table -->
+        <mxCell id="userRole" value="UserRole (Pivot)
+- id (PK)
+- userId (FK)
+- roleId (FK)
+- updateBy
+- createdAt
+- updatedAt" style="shape=swimlane;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="170" y="250" width="200" height="140" as="geometry" />
+        </mxCell>
+        <!-- RoleMenu Table -->
+        <mxCell id="roleMenu" value="RoleMenu (Pivot)
+- id (PK)
+- roleId (FK)
+- menuId (FK)
+- updateBy
+- createdAt
+- updatedAt" style="shape=swimlane;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="470" y="250" width="200" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Relations -->
+        <mxCell id="rel1" style="endArrow=block;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="user" target="userRole">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" style="endArrow=block;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="role" target="userRole">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" style="endArrow=block;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="role" target="roleMenu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" style="endArrow=block;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="menu" target="roleMenu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5" style="endArrow=open;html=1;exitX=0.8;exitY=1;entryX=0.8;entryY=0;" edge="1" parent="1" source="menu" target="menu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
